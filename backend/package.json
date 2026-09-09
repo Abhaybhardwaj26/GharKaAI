@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^2.18.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "openai": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
+  }
+}

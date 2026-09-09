@@ -1,0 +1,1791 @@
+/* =====================================================
+   ANALYSIS RESULT PAGE
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+.analysis-page {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background: #f7f9f7;
+  color: #202520;
+  font-family:
+    "Noto Sans Devanagari",
+    "Noto Sans",
+    Arial,
+    sans-serif;
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+.analysis-dark {
+  background: #101410;
+  color: #f2f5f2;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.analysis-header {
+  width: 100%;
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 5%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #e3e8e3;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.analysis-dark .analysis-header {
+  background: rgba(17, 21, 17, 0.97);
+  border-color: #2d352d;
+}
+
+.analysis-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #202520;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.analysis-dark .analysis-logo {
+  color: #f4f7f4;
+}
+
+.analysis-logo span {
+  color: inherit;
+}
+
+.back-button {
+  padding: 10px 18px;
+
+  border: 1px solid #d9e1d9;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #303630;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+
+  background: #eef6ed;
+
+  border-color: #75aa70;
+
+  color: #3d7d3d;
+}
+
+.analysis-dark .back-button {
+  background: #1b211b;
+  color: #edf2ed;
+  border-color: #343d34;
+}
+
+.analysis-dark .back-button:hover {
+  background: #263126;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.analysis-main {
+  width: min(92%, 1200px);
+
+  margin: 0 auto;
+
+  padding: 65px 0 100px;
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.analysis-title {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+.analysis-title span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 15px;
+
+  border-radius: 999px;
+
+  background: #edf7eb;
+
+  color: #3f7d3f;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 18px;
+}
+
+.analysis-title h1 {
+  margin: 0;
+
+  color: #202520;
+
+  font-size: clamp(32px, 5vw, 52px);
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  overflow-wrap: anywhere;
+}
+
+.analysis-title p {
+  margin: 16px auto 0;
+
+  max-width: 700px;
+
+  color: #667066;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.analysis-dark .analysis-title span {
+  background: #203020;
+  color: #8ed38a;
+}
+
+.analysis-dark .analysis-title h1 {
+  color: #f2f6f2;
+}
+
+.analysis-dark .analysis-title p {
+  color: #a9b4a9;
+}
+
+
+/* =====================================================
+   PROBLEM CARD
+===================================================== */
+
+.analysis-problem-card {
+  width: 100%;
+
+  padding: 35px;
+
+  margin-bottom: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e7e0;
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow:
+    0 15px 45px rgba(30, 50, 30, 0.06);
+
+  overflow: hidden;
+}
+
+.analysis-card-label {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: #f0f6ef;
+
+  color: #4a8647;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.analysis-problem-card h2 {
+  margin: 0;
+
+  color: #242924;
+
+  font-size: clamp(22px, 3vw, 32px);
+
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.problem-image {
+  display: block;
+
+  width: 100%;
+  max-width: 550px;
+
+  max-height: 450px;
+
+  object-fit: cover;
+
+  margin: 25px auto 0;
+
+  border-radius: 18px;
+
+  border: 1px solid #e2e8e2;
+}
+
+.analysis-dark .analysis-problem-card {
+  background: #181e18;
+  border-color: #303830;
+}
+
+.analysis-dark .analysis-card-label {
+  background: #253125;
+  color: #91d28d;
+}
+
+.analysis-dark .analysis-problem-card h2 {
+  color: #f1f5f1;
+}
+
+
+/* =====================================================
+   TRANSLATION STATUS
+===================================================== */
+
+.translation-status {
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0 auto 25px;
+
+  padding: 12px 18px;
+
+  border-radius: 12px;
+
+  background: #fff8df;
+
+  color: #806500;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+.analysis-dark .translation-status {
+  background: #3a331b;
+  color: #f0d96d;
+}
+
+
+/* =====================================================
+   RESULT GRID
+===================================================== */
+
+.result-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+
+  margin-bottom: 65px;
+}
+
+.result-card {
+  min-width: 0;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e7e0;
+
+  border-radius: 22px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  overflow: hidden;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #9fc89c;
+
+  box-shadow:
+    0 18px 45px rgba(35, 65, 35, 0.09);
+}
+
+.result-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 15px;
+
+  background: #eef7ec;
+
+  font-size: 24px;
+}
+
+.result-card > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #4d8d49;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+
+  overflow-wrap: anywhere;
+}
+
+.result-card h3 {
+  margin: 0 0 13px;
+
+  color: #222722;
+
+  font-size: 23px;
+
+  line-height: 1.3;
+
+  overflow-wrap: anywhere;
+}
+
+.result-card p {
+  margin: 0;
+
+  color: #5f695f;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  white-space: pre-line;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.analysis-dark .result-card {
+  background: #181e18;
+  border-color: #303830;
+}
+
+.analysis-dark .result-card:hover {
+  border-color: #527c50;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+.analysis-dark .result-icon {
+  background: #263526;
+}
+
+.analysis-dark .result-card > span {
+  color: #88ca84;
+}
+
+.analysis-dark .result-card h3 {
+  color: #f0f5f0;
+}
+
+.analysis-dark .result-card p {
+  color: #abb6ab;
+}
+
+
+/* =====================================================
+   SAFETY CARD
+===================================================== */
+
+.safety-card {
+  border-color: #f0d7a6;
+}
+
+.safety-card .result-icon {
+  background: #fff6df;
+}
+
+.analysis-dark .safety-card {
+  border-color: #5b4a27;
+}
+
+.analysis-dark .safety-card .result-icon {
+  background: #3b321d;
+}
+
+
+/* =====================================================
+   CATEGORY CARD
+===================================================== */
+
+.category-card {
+  border-color: #cfe4cd;
+}
+
+.category-card .result-icon {
+  background: #eef8ed;
+}
+
+
+/* =====================================================
+   PRICE CARD
+===================================================== */
+
+.price-card {
+  border-color: #d4e7ca;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f7fcf5
+    );
+}
+
+.price-card .result-icon {
+  background: #e8f6e5;
+}
+
+.estimated-cost-value {
+  color: #3c7d3b !important;
+
+  font-size: 21px !important;
+
+  font-weight: 800;
+
+  line-height: 1.5 !important;
+}
+
+.price-card small {
+  display: block;
+
+  margin-top: 16px;
+
+  color: #788078;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.analysis-dark .price-card {
+  background:
+    linear-gradient(
+      135deg,
+      #182018,
+      #1d281d
+    );
+
+  border-color: #3e573d;
+}
+
+.analysis-dark .price-card .result-icon {
+  background: #294029;
+}
+
+.analysis-dark .estimated-cost-value {
+  color: #91d68d !important;
+}
+
+.analysis-dark .price-card small {
+  color: #9ca89c;
+}
+
+
+/* =====================================================
+   NEARBY REPAIR SECTION
+===================================================== */
+
+.nearby-repair-section {
+  width: 100%;
+
+  margin: 25px 0 75px;
+
+  padding: 45px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2f9f0,
+      #ffffff
+    );
+
+  border: 1px solid #dce9d9;
+
+  overflow: hidden;
+}
+
+.analysis-dark .nearby-repair-section {
+  background:
+    linear-gradient(
+      135deg,
+      #172017,
+      #111611
+    );
+
+  border-color: #2d3c2d;
+}
+
+.nearby-repair-heading {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.nearby-repair-heading span {
+  display: inline-block;
+
+  padding: 8px 15px;
+
+  border-radius: 999px;
+
+  background: #e4f3e2;
+
+  color: #397e39;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 14px;
+}
+
+.nearby-repair-heading h2 {
+  margin: 0;
+
+  color: #222822;
+
+  font-size: clamp(28px, 4vw, 42px);
+
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
+}
+
+.nearby-repair-heading p {
+  max-width: 750px;
+
+  margin: 15px auto 0;
+
+  color: #667066;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.analysis-dark .nearby-repair-heading span {
+  background: #243524;
+  color: #91d38d;
+}
+
+.analysis-dark .nearby-repair-heading h2 {
+  color: #f2f6f2;
+}
+
+.analysis-dark .nearby-repair-heading p {
+  color: #a7b2a7;
+}
+
+
+/* =====================================================
+   FIND NEARBY SEARCH BOX
+===================================================== */
+
+.nearby-search-box {
+  width: 100%;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 38px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7da;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(40, 75, 40, 0.06);
+}
+
+.nearby-search-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 18px;
+
+  border-radius: 18px;
+
+  background: #edf8eb;
+
+  font-size: 29px;
+}
+
+.nearby-search-box h3 {
+  margin: 0 0 12px;
+
+  color: #252b25;
+
+  font-size: 27px;
+
+  overflow-wrap: anywhere;
+}
+
+.nearby-search-box p {
+  max-width: 650px;
+
+  margin: 0 auto 25px;
+
+  color: #697269;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.find-repair-button {
+  min-height: 48px;
+
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #4e9949;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(71, 145, 66, 0.2);
+
+  transition: all 0.2s ease;
+}
+
+.find-repair-button:hover {
+  transform: translateY(-2px);
+
+  background: #3f853b;
+
+  box-shadow:
+    0 12px 25px rgba(71, 145, 66, 0.28);
+}
+
+.analysis-dark .nearby-search-box {
+  background: #1a211a;
+  border-color: #303b30;
+}
+
+.analysis-dark .nearby-search-icon {
+  background: #263926;
+}
+
+.analysis-dark .nearby-search-box h3 {
+  color: #f1f5f1;
+}
+
+.analysis-dark .nearby-search-box p {
+  color: #aab5aa;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.nearby-loading {
+  padding: 45px 25px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7da;
+
+  border-radius: 22px;
+}
+
+.location-loader {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 18px;
+
+  border: 4px solid #dcebd9;
+
+  border-top-color: #4e9949;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nearby-loading h3 {
+  margin: 0 0 8px;
+
+  color: #252b25;
+}
+
+.nearby-loading p {
+  margin: 0;
+
+  color: #717a71;
+}
+
+.analysis-dark .nearby-loading {
+  background: #1a211a;
+  border-color: #303b30;
+}
+
+.analysis-dark .nearby-loading h3 {
+  color: #f1f5f1;
+}
+
+.analysis-dark .nearby-loading p {
+  color: #a6b0a6;
+}
+
+
+/* =====================================================
+   LOCATION ERROR
+===================================================== */
+
+.location-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  background: #fff4f3;
+
+  border: 1px solid #f1d0cc;
+
+  border-radius: 20px;
+}
+
+.location-error > div {
+  font-size: 30px;
+}
+
+.location-error p {
+  margin: 0;
+
+  color: #8a4540;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.location-error button {
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #d95c52;
+
+  color: white;
+
+  font-family: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.analysis-dark .location-error {
+  background: #311d1b;
+  border-color: #57302c;
+}
+
+.analysis-dark .location-error p {
+  color: #efaaa3;
+}
+
+
+/* =====================================================
+   NO SHOPS
+===================================================== */
+
+.no-shops {
+  padding: 40px 25px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e6e0;
+
+  border-radius: 22px;
+}
+
+.no-shops > div {
+  font-size: 35px;
+
+  margin-bottom: 12px;
+}
+
+.no-shops h3 {
+  margin: 0 0 10px;
+
+  color: #252b25;
+}
+
+.no-shops p {
+  max-width: 600px;
+
+  margin: 0 auto 20px;
+
+  color: #6d766d;
+
+  line-height: 1.7;
+}
+
+.no-shops button {
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #4e9949;
+
+  color: white;
+
+  font-family: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.analysis-dark .no-shops {
+  background: #1a211a;
+  border-color: #303b30;
+}
+
+.analysis-dark .no-shops h3 {
+  color: #f2f5f2;
+}
+
+.analysis-dark .no-shops p {
+  color: #a6b0a6;
+}
+
+
+/* =====================================================
+   SHOPS FOUND INFO
+===================================================== */
+
+.shops-found-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+
+  padding: 16px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe7d8;
+
+  border-radius: 15px;
+}
+
+.shops-found-info span {
+  font-size: 21px;
+}
+
+.shops-found-info p {
+  flex: 1;
+
+  margin: 0;
+
+  color: #3d463d;
+
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.shops-found-info button {
+  flex-shrink: 0;
+
+  padding: 9px 14px;
+
+  border: 1px solid #cfe0cc;
+
+  border-radius: 9px;
+
+  background: #f3f9f1;
+
+  color: #427f3e;
+
+  font-family: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.analysis-dark .shops-found-info {
+  background: #1a211a;
+  border-color: #303b30;
+}
+
+.analysis-dark .shops-found-info p {
+  color: #edf2ed;
+}
+
+.analysis-dark .shops-found-info button {
+  background: #263526;
+  border-color: #405340;
+  color: #9bd595;
+}
+
+
+/* =====================================================
+   REPAIR SHOPS GRID
+===================================================== */
+
+.repair-shops-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   REPAIR SHOP CARD
+===================================================== */
+
+.repair-shop-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce6da;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(40, 70, 40, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  overflow: hidden;
+}
+
+.repair-shop-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 40px rgba(40, 70, 40, 0.1);
+}
+
+.shop-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.shop-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #eef7ec;
+
+  font-size: 23px;
+}
+
+.shop-rating {
+  padding: 8px 11px;
+
+  border-radius: 10px;
+
+  background: #fff7df;
+
+  color: #8b6a00;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.repair-shop-card h3 {
+  margin: 0 0 8px;
+
+  color: #252b25;
+
+  font-size: 21px;
+
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
+}
+
+.review-count {
+  margin: 0 0 18px;
+
+  color: #7a837a;
+
+  font-size: 13px;
+}
+
+.shop-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-top: 5px;
+}
+
+.shop-details > div {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.shop-details span {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  font-size: 16px;
+}
+
+.shop-details p {
+  min-width: 0;
+
+  margin: 0;
+
+  color: #5e685e;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.shop-actions {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.call-shop-button,
+.direction-button {
+  min-width: 0;
+
+  min-height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  transition: all 0.2s ease;
+}
+
+.call-shop-button {
+  border: 1px solid #d5e2d2;
+
+  background: #ffffff;
+
+  color: #417e3e;
+}
+
+.call-shop-button:hover {
+  background: #eff8ed;
+}
+
+.call-shop-button.disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+.direction-button {
+  border: none;
+
+  background: #4d9748;
+
+  color: #ffffff;
+}
+
+.direction-button:hover {
+  transform: translateY(-1px);
+
+  background: #3e833a;
+}
+
+.analysis-dark .repair-shop-card {
+  background: #1a211a;
+  border-color: #303b30;
+}
+
+.analysis-dark .shop-icon {
+  background: #263526;
+}
+
+.analysis-dark .shop-rating {
+  background: #3b331d;
+  color: #efd878;
+}
+
+.analysis-dark .repair-shop-card h3 {
+  color: #f0f4f0;
+}
+
+.analysis-dark .review-count {
+  color: #9ca69c;
+}
+
+.analysis-dark .shop-details p {
+  color: #abb5ab;
+}
+
+.analysis-dark .call-shop-button {
+  background: #202920;
+  border-color: #3c4b3c;
+  color: #9bd695;
+}
+
+
+/* =====================================================
+   NEXT STEPS
+===================================================== */
+
+.next-steps {
+  width: 100%;
+
+  padding: 50px 35px;
+
+  margin-bottom: 55px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e7e0;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+}
+
+.next-steps > span {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #4a8b46;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.next-steps h2 {
+  margin: 0 0 35px;
+
+  color: #252b25;
+
+  font-size: clamp(28px, 4vw, 40px);
+
+  overflow-wrap: anywhere;
+}
+
+.steps-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  text-align: left;
+}
+
+.steps-list > div {
+  display: grid;
+
+  grid-template-columns: 55px minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px 20px;
+
+  background: #f6faf5;
+
+  border: 1px solid #e2ece0;
+
+  border-radius: 15px;
+}
+
+.steps-list b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #e4f2e2;
+
+  color: #458442;
+
+  font-size: 14px;
+}
+
+.steps-list p {
+  min-width: 0;
+
+  margin: 0;
+
+  color: #515b51;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.analysis-dark .next-steps {
+  background: #181e18;
+  border-color: #303830;
+}
+
+.analysis-dark .next-steps h2 {
+  color: #f2f5f2;
+}
+
+.analysis-dark .steps-list > div {
+  background: #202820;
+  border-color: #303b30;
+}
+
+.analysis-dark .steps-list b {
+  background: #294029;
+  color: #9bd795;
+}
+
+.analysis-dark .steps-list p {
+  color: #abb5ab;
+}
+
+
+/* =====================================================
+   FULL AI RESPONSE
+===================================================== */
+
+.full-ai-response {
+  width: 100%;
+
+  padding: 35px;
+
+  background: #f0f4ef;
+
+  border: 1px solid #dce4da;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+}
+
+.full-ai-response > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #4d8d49;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.full-ai-response pre {
+  width: 100%;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 22px;
+
+  overflow-x: auto;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+
+  word-break: break-word;
+
+  font-family:
+    "Noto Sans Devanagari",
+    "Noto Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #3f4840;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7df;
+
+  border-radius: 15px;
+}
+
+.analysis-dark .full-ai-response {
+  background: #171d17;
+  border-color: #2f382f;
+}
+
+.analysis-dark .full-ai-response pre {
+  background: #111611;
+  border-color: #293329;
+  color: #c0c9c0;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .analysis-main {
+    width: 92%;
+    padding-top: 50px;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nearby-repair-section {
+    padding: 35px 25px;
+  }
+
+  .repair-shops-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .analysis-page {
+    overflow-x: hidden;
+  }
+
+  .analysis-header {
+    min-height: 68px;
+
+    padding: 12px 4%;
+
+    gap: 10px;
+  }
+
+  .analysis-logo {
+    font-size: 20px;
+  }
+
+  .back-button {
+    padding: 9px 13px;
+
+    font-size: 13px;
+  }
+
+  .analysis-main {
+    width: 94%;
+
+    padding: 35px 0 70px;
+  }
+
+  .analysis-title {
+    margin-bottom: 30px;
+  }
+
+  .analysis-title span {
+    font-size: 10px;
+
+    padding: 7px 12px;
+  }
+
+  .analysis-title h1 {
+    font-size: 32px;
+  }
+
+  .analysis-title p {
+    font-size: 15px;
+  }
+
+  .analysis-problem-card {
+    padding: 25px 18px;
+
+    border-radius: 19px;
+  }
+
+  .analysis-problem-card h2 {
+    font-size: 22px;
+  }
+
+  .problem-image {
+    max-height: 300px;
+
+    border-radius: 14px;
+  }
+
+  .result-grid {
+    gap: 15px;
+
+    margin-bottom: 45px;
+  }
+
+  .result-card {
+    padding: 23px 18px;
+
+    border-radius: 18px;
+  }
+
+  .result-card h3 {
+    font-size: 20px;
+  }
+
+  .result-card p {
+    font-size: 14px;
+  }
+
+  .nearby-repair-section {
+    padding: 28px 15px;
+
+    margin-bottom: 50px;
+
+    border-radius: 20px;
+  }
+
+  .nearby-repair-heading h2 {
+    font-size: 29px;
+  }
+
+  .nearby-repair-heading p {
+    font-size: 14px;
+  }
+
+  .nearby-search-box {
+    padding: 28px 18px;
+
+    border-radius: 18px;
+  }
+
+  .nearby-search-box h3 {
+    font-size: 22px;
+  }
+
+  .nearby-search-box p {
+    font-size: 14px;
+  }
+
+  .find-repair-button {
+    width: 100%;
+  }
+
+  .shops-found-info {
+    flex-wrap: wrap;
+
+    padding: 14px;
+  }
+
+  .shops-found-info p {
+    min-width: 180px;
+
+    font-size: 14px;
+  }
+
+  .shops-found-info button {
+    width: 100%;
+  }
+
+  .repair-shops-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .repair-shop-card {
+    padding: 20px 17px;
+  }
+
+  .shop-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .call-shop-button,
+  .direction-button {
+    width: 100%;
+  }
+
+  .next-steps {
+    padding: 35px 18px;
+
+    border-radius: 20px;
+  }
+
+  .next-steps h2 {
+    font-size: 28px;
+
+    margin-bottom: 25px;
+  }
+
+  .steps-list > div {
+    grid-template-columns: 45px minmax(0, 1fr);
+
+    gap: 10px;
+
+    padding: 15px 12px;
+  }
+
+  .steps-list b {
+    width: 38px;
+    height: 38px;
+
+    font-size: 12px;
+  }
+
+  .steps-list p {
+    font-size: 14px;
+  }
+
+  .full-ai-response {
+    padding: 22px 15px;
+
+    border-radius: 18px;
+  }
+
+  .full-ai-response pre {
+    padding: 15px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .analysis-header {
+    align-items: center;
+  }
+
+  .analysis-logo {
+    font-size: 18px;
+  }
+
+  .back-button {
+    padding: 8px 10px;
+
+    font-size: 12px;
+  }
+
+  .analysis-title h1 {
+    font-size: 28px;
+  }
+
+  .nearby-repair-heading h2 {
+    font-size: 25px;
+  }
+
+  .result-card {
+    padding: 20px 15px;
+  }
+
+  .shop-top {
+    align-items: flex-start;
+  }
+
+}
