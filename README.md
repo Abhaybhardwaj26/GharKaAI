@@ -1,3 +1,5 @@
+LINK-[https://ghar-ka-ai.vercel.app/]
+
 🏠 GharKaAI
 
 GharKaAI is an AI-powered household problem-solving web application that helps users understand everyday problems and find practical solutions. Users can describe a problem or upload an image, and the application uses AI to analyze the issue, identify possible causes, suggest next steps, and help users find nearby repair services based on their current location.
